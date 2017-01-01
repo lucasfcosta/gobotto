@@ -11,14 +11,17 @@ func Parse(text string) Robots {
 
 	var lastUserAgent string
 
+	// For each line
 	for _, line := range lines {
 		normalized := strings.ToLower(line)
 
+		// Detect the semantic value of a line
 		isComment := strings.HasPrefix(normalized, "#")
 		isUserAgent := strings.HasPrefix(normalized, "user-agent")
 		isAllow := strings.HasPrefix(normalized, "allow")
 		isDisallow := strings.HasPrefix(normalized, "disallow")
 
+		// Handle that line according to its semantic value
 		if isComment {
 			comment := strings.TrimLeft(strings.Split(line, "#")[1], " ")
 			robots.Comments = append(robots.Comments, comment)
@@ -29,30 +32,25 @@ func Parse(text string) Robots {
 				robots.Rules[lastUserAgent] = newRules()
 			}
 		} else if isAllow {
-			allowedPath := strings.Split(line, " ")[1]
-			subpaths := strings.Split(allowedPath, "/")
-			count := 0
-			for _, subpath := range subpaths {
-				if subpath != "" {
-					count++
-				}
-			}
-
-			robots.Rules[lastUserAgent].Allow[allowedPath] = count
+			path := strings.Split(line, " ")[1]
+			robots.Rules[lastUserAgent].Allow[path] = precision(path)
 		} else if isDisallow {
-			disallowedPath := strings.Split(line, " ")[1]
-
-			subpaths := strings.Split(disallowedPath, "/")
-			count := 0
-			for _, subpath := range subpaths {
-				if subpath != "" {
-					count++
-				}
-			}
-
-			robots.Rules[lastUserAgent].Disallow[disallowedPath] = count
+			path := strings.Split(line, " ")[1]
+			robots.Rules[lastUserAgent].Disallow[path] = precision(path)
 		}
 	}
 
 	return robots
+}
+
+func precision(path string) int {
+	subpaths := strings.Split(path, "/")
+	count := 0
+	for _, subpath := range subpaths {
+		if subpath != "" {
+			count++
+		}
+	}
+
+	return count
 }
