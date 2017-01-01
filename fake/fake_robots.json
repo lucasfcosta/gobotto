@@ -1,0 +1,31 @@
+{
+    "comments": [
+        "one",
+        "two",
+        "override"
+    ],
+    "rules": {
+        "*": {
+            "allow": {
+                "/random/": 1,
+                "/path/one/": 2
+            },
+            "disallow": {
+                "/path/": 1
+            }
+        },
+        "Googlebot": {
+            "allow": {
+                "/browse/": 1,
+                "/new/broken/": 2
+            },
+            "disallow": {}
+        },
+        "Slurp": {
+            "allow": {
+                "/browse/": 1
+            },
+            "disallow": {}
+        }
+    }
+}
