@@ -1,37 +1,17 @@
-#
-#
-#              _____
-#             |     |
-#             | | | |
-#             |_____|
-#       ____ ___|_|___ ____
-#      ()___)         ()___)
-#      // /|           |\ \\
-#     // / |           | \ \\
-#    (___) |___________| (___)
-#    (___)   (_______)   (___)
-#    (___)     (___)     (___)
-#    (___)      |_|      (___)
-#    (___)  ___/___\___   | |
-#     | |  |           |  | |
-#     | |  |___________| /___\
-#    /___\  |||     ||| //   \\
-#   //   \\ |||     ||| \\   //
-#   \\   // |||     |||  \\ //
-#    \\ // ()__)   (__()
-#          ///       \\\
-#         ///         \\\
-#       _///___     ___\\\_
-#      |_______|   |_______|
-#
-#
-#
+# one
+# two
+
 User-agent: *
-Disallow: /browse/
-Disallow: /enterprise/orgs-terms
+Allow: /random/
+Allow: /path/one/
+Disallow: /path/
+
 User-agent: Googlebot
 Allow: /browse/
+
 User-agent: Slurp
 Allow: /browse/
-User-Agent: msnbot
-Allow: /browse/
+
+# override
+User-agent: Googlebot
+Allow: /new/broken/
