@@ -15,6 +15,19 @@ type FetchTestSuite struct {
 	suite.Suite
 }
 
+func (suite *FetchTestSuite) TestFetchAnyPath() {
+	// Create fake server
+	responseCallback := func(w http.ResponseWriter, r *http.Request) {
+		fmt.Println(r.URL)
+		assert.Equal(suite.T(), "/robots.txt", r.URL.Path)
+	}
+	mockServer := httptest.NewServer(http.HandlerFunc(responseCallback))
+	defer mockServer.Close()
+
+	// Fetch robots.txt from fake server
+	Fetch(mockServer.URL)
+}
+
 func (suite *FetchTestSuite) TestFetchSuccessful() {
 	// Read local robots.txt file
 	path, _ := filepath.Abs("../fake/fake_robots.txt")
