@@ -23,9 +23,13 @@
         },
         "Slurp": {
             "allow": {
-                "/browse/": 1
+                "/browse/": 1,
+                "/conflicting/": 1
             },
-            "disallow": {}
+            "disallow": {
+                "/thing/": 1,
+                "/conflicting/": 1
+            }
         }
     }
 }

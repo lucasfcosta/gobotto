@@ -11,6 +11,9 @@ Allow: /browse/
 
 User-agent: Slurp
 Allow: /browse/
+Allow: /conflicting/
+Disallow: /thing/
+Disallow: /conflicting/
 
 # override
 User-agent: Googlebot
