@@ -1,4 +1,4 @@
-package gobotto
+package robotsurl
 
 import (
 	"net/url"

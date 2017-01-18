@@ -1,13 +1,13 @@
-package gobotto
+package fetch
 
 import (
-	robotsURL "github.com/lucasfcosta/gobotto/robotsURL"
+	"github.com/lucasfcosta/gobotto/robotsurl"
 	"io/ioutil"
 	"net/http"
 )
 
 func Fetch(address string) ([]byte, error) {
-	robotsAddress, err := robotsURL.RobotsURL(address)
+	robotsAddress, err := robotsurl.RobotsURL(address)
 	res, err := http.Get(robotsAddress)
 	robots, err := ioutil.ReadAll(res.Body)
 

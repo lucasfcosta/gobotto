@@ -1,11 +1,12 @@
-package gobotto
+package parse
 
 import (
+	"github.com/lucasfcosta/gobotto/models"
 	"strings"
 )
 
-func Parse(text string) Robots {
-	robots := newRobots()
+func Parse(text string) models.Robots {
+	robots := models.NewRobots()
 
 	lines := strings.Split(text, "\n")
 
@@ -29,7 +30,7 @@ func Parse(text string) Robots {
 			lastUserAgent = strings.Split(line, " ")[1]
 			_, exists := robots.Rules[lastUserAgent]
 			if !exists {
-				robots.Rules[lastUserAgent] = newRules()
+				robots.Rules[lastUserAgent] = models.NewRules()
 			}
 		} else if isAllow {
 			path := strings.Split(line, " ")[1]

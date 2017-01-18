@@ -1,7 +1,8 @@
-package gobotto
+package parse
 
 import (
 	"encoding/json"
+	"github.com/lucasfcosta/gobotto/models"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/suite"
 	"io/ioutil"
@@ -19,11 +20,11 @@ func fakeText() string {
 	return string(robots)
 }
 
-func fakeRules() Robots {
+func fakeRules() models.Robots {
 	path, _ := filepath.Abs("../fake/fake_robots.json")
 	robotsJson, _ := ioutil.ReadFile(path)
 
-	var rules Robots
+	var rules models.Robots
 	json.Unmarshal(robotsJson, &rules)
 	return rules
 }
