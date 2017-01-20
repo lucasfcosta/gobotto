@@ -1,20 +1,21 @@
 package robotsurl
 
 import (
+	"fmt"
 	"github.com/stretchr/testify/assert"
 	"testing"
 )
 
 // Gets a robots.txt path for root urls
 func ExampleRobotsUrl_rootURL() {
-	url, err := RobotsURL("https://example.com/")
+	url, _ := RobotsURL("https://example.com/")
 	fmt.Println(url)
 	// Output: https://example.com/robots.txt
 }
 
 // Gets a robots.txt path for any urls
 func ExampleRobotsURL_anyUrl() {
-	url, err := RobotsURL("https://example.com/path/to/whatever")
+	url, _ := RobotsURL("https://example.com/path/to/whatever")
 	fmt.Println(url)
 	// Output: https://example.com/robots.txt
 }

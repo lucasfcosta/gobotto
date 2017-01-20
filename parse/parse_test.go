@@ -2,6 +2,8 @@ package parse
 
 import (
 	"encoding/json"
+	"fmt"
+	"github.com/lucasfcosta/gobotto/fetch"
 	"github.com/lucasfcosta/gobotto/models"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/suite"
@@ -13,15 +15,12 @@ import (
 // Parses a robots.txt file.
 func ExampleParse() {
 	// This fetches robots.txt from https://example.com/robots.txt
-	robots, err = Fetch("https://example.com")
+	robots, _ := fetch.Fetch("https://example.com")
 
 	// This parses the fetched rules
-	parse.Parse(string(robots))
+	parsed := Parse(string(robots))
 
-	// This checks if an agent is allowed to crawl a page given certain rules
-	allowed, err := IsAllowed("Googlebot", "https://example.org/browse/random", rules)
-
-	fmt.Println(allowed)
+	fmt.Println(parsed)
 }
 
 type ParseTestSuite struct {

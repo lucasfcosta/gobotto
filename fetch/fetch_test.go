@@ -14,7 +14,7 @@ import (
 // Fetches the correct robots.txt file given any URL.
 func ExampleFetch_anyPath() {
 	// This fetches robots.txt from https://example.com/robots.txt
-	robots, err = Fetch("https://example.com/whatever/crazy/path")
+	robots, _ := Fetch("https://example.com/whatever/crazy/path")
 	// In order to transform this into a string you gotta do a explicit conversion:
 	robotsString := string(robots)
 	fmt.Println(robotsString)
@@ -23,7 +23,7 @@ func ExampleFetch_anyPath() {
 // Fetches the correct robots.txt file given a root URL.
 func ExampleFetch_rootUrl() {
 	// This fetches robots.txt from https://example.com/robots.txt
-	robots, err = Fetch("https://example.com/")
+	robots, _ := Fetch("https://example.com/")
 	// In order to transform this into a string you gotta do a explicit conversion:
 	robotsString := string(robots)
 	fmt.Println(robotsString)
