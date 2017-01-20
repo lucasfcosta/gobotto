@@ -10,6 +10,20 @@ import (
 	"testing"
 )
 
+// Parses a robots.txt file.
+func ExampleParse() {
+	// This fetches robots.txt from https://example.com/robots.txt
+	robots, err = Fetch("https://example.com")
+
+	// This parses the fetched rules
+	parse.Parse(string(robots))
+
+	// This checks if an agent is allowed to crawl a page given certain rules
+	allowed, err := IsAllowed("Googlebot", "https://example.org/browse/random", rules)
+
+	fmt.Println(allowed)
+}
+
 type ParseTestSuite struct {
 	suite.Suite
 }

@@ -1,3 +1,16 @@
+/*
+  This code does not have any restrictions, use it as you please.
+  Instead of copyright stuff, let's have some cool phrases:
+	  "The absolute transformation of everything that we ever thought about music will
+	  take place within 10 years, and nothing is going to be able to stop it. I see
+	  absolutely no point in pretending that it's not going to happen.
+	  I'm fully confident that copyright, for instance, will no longer exist in 10 years."
+	  -BOWIE, David
+*/
+
+/*
+  Package parse allows you to parse the raw content of a robots.txt file into a Robots struct.
+*/
 package parse
 
 import (
