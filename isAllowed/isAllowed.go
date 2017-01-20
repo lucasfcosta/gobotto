@@ -1,3 +1,12 @@
+/*
+  THIS CODE IS NOT ONLY MINE, IT BELONGS TO EVERYONE!
+  I'll replace unuseful copyright headers with cool phrases and random stuff.
+  "Only one thing is impossible for God: To find any sense in any copyright law on the planet." -TWAIN, Mark
+*/
+
+/*
+  Package isallowed allows you to determine whether or not an agent can crawn an address given a set of rules.
+*/
 package isallowed
 
 import (
