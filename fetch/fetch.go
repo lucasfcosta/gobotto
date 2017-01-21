@@ -1,14 +1,9 @@
-/*
-  Instead of adding copyright and restrictive licenses to the header of every file,
-  I'll make sure every single one in this package has a statement telling people how great the internet is.
-  Thanks internet for enlightening me with so much knowledge!
-*/
+// Instead of adding copyright and restrictive licenses to the header of every file,
+// I'll make sure every single one in this package has a statement telling people how great the internet is.
+// Thanks internet for enlightening me with so much knowledge!
 
-/*
-  Package fetch allows you to fetch a robots.txt file for any website given any address.
-
-  Given any URL this function will fetch the content of protocol://domain/robots.txt.
-*/
+//   Package fetch allows you to fetch a robots.txt file for any website given any address.
+//   Given any URL this function will fetch the content of protocol://domain/robots.txt.
 package fetch
 
 import (
