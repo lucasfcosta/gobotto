@@ -23,7 +23,7 @@ func Parse(text string) models.Robots {
 
 	// For each line
 	for _, line := range lines {
-		normalized := strings.ToLower(line)
+		normalized := strings.Trim(strings.ToLower(line), " ")
 
 		// Detect the semantic value of a line
 		isComment := strings.HasPrefix(normalized, "#")
